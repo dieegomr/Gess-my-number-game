@@ -22,36 +22,7 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent =
       "🚫 Choose a number between 1 and 20";
 
-    // Guess greater than secret number
-  } else if (guess > secretNumber) {
-    if (score > 1) {
-      document.querySelector(".message").textContent = "⬆️ Too high!";
-      score--;
-      document.querySelector(".score").textContent = score;
-
-      // Lost the game
-    } else {
-      score = 0;
-      document.querySelector(".score").textContent = score;
-      document.querySelector(".message").textContent = "💥 You lost the game!";
-      document.querySelector("body").style.backgroundColor = "#FF0000";
-    }
-
-    // Guess less than secret number
-  } else if (guess < secretNumber) {
-    if (score > 0) {
-      document.querySelector(".message").textContent = "⬇️ Too low!";
-      score--;
-      document.querySelector(".score").textContent = score;
-      // Lost the game
-    } else {
-      score = 0;
-      document.querySelector(".score").textContent = score;
-      document.querySelector(".message").textContent = "💥 You lost the game!";
-      document.querySelector("body").style.backgroundColor = "#FF0000";
-    }
-
-    // Corrrect guesss
+    // Correct number
   } else if (guess === secretNumber) {
     document.querySelector(".message").textContent = "🎉 Correct Number!";
     document.querySelector("body").style.backgroundColor = "#228B22";
@@ -61,5 +32,17 @@ document.querySelector(".check").addEventListener("click", function () {
     }
     document.querySelector(".number").textContent = secretNumber;
     document.querySelector(".number").style.width = "25rem";
+  } else {
+    if (score > 1) {
+      document.querySelector(".message").textContent =
+        guess > secretNumber ? "⬆️ Too high!" : "⬇️ Too low!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else if (guess !== secretNumber) {
+      score = 0;
+      document.querySelector(".score").textContent = score;
+      document.querySelector(".message").textContent = "💥 You lost the game!";
+      document.querySelector("body").style.backgroundColor = "#FF0000";
+    }
   }
 });
