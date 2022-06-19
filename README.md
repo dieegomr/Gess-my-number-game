@@ -8,7 +8,7 @@ This is a simple project part of <a href="https://www.udemy.com/course/the-compl
 The HTML and CSS was ready but it was necessary to implement JavaScript code to make the game work.
 </p>
 
-<h3>How does this game works?</h3>
+<h3>How does this game work?</h3>
 
 <ol>
 <li>The computer generates a secret random number;</li>
